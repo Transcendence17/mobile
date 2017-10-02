@@ -1,0 +1,25 @@
+<ion-header>
+
+    <ion-navbar>
+
+      <ion-buttons start>
+        <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+      </ion-buttons>
+
+      <ion-title text-center><ion-icon name="eye"></ion-icon> Observations</ion-title>
+
+    </ion-navbar>
+
+</ion-header>
+    
+<ion-content padding>
+
+  <ion-list>
+    <button ion-item menuClose *ngFor="let observation of allobservations" (click)="openObservation(observation)">
+      <h2 class="name">{{ observation.t_name }}</h2> <br> <p class="small">start : {{ observation.s_date | dateFormater }} | end : {{ observation.e_date | dateFormater }}</p>
+    </button>
+  </ion-list> 
+
+</ion-content>

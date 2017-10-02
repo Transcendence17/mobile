@@ -1,0 +1,32 @@
+<ion-header>
+
+  <ion-navbar>
+
+    <ion-buttons start>
+      <button ion-button (click)="addMarker()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+    
+    <ion-title text-center><ion-icon name="navigate"></ion-icon> Map</ion-title>
+    
+    <ion-buttons end>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+    <ion-card>
+        <ion-card-content>
+            <div #directionsPanel></div>
+        </ion-card-content>
+    </ion-card>
+    
+    <div #map id="map"></div>  
+</ion-content>
