@@ -14,7 +14,7 @@ import { BackgroundGeolocation, BackgroundGeolocationConfig, BackgroundGeolocati
 export class MyApp {
   rootPage:any = LoginPage;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private backgroundGeolocation: BackgroundGeolocation) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -23,7 +23,7 @@ export class MyApp {
     });
 
     //geolocation
-    constructor(private backgroundGeolocation: BackgroundGeolocation) { }
+    //constructor() { }
 
     const config: BackgroundGeolocationConfig = {
                 desiredAccuracy: 10,
@@ -42,7 +42,6 @@ export class MyApp {
         // and the background-task may be completed.  You must do this regardless if your HTTP request is successful or not.
         // IF YOU DON'T, ios will CRASH YOUR APP for spending too much time in the background.
         this.backgroundGeolocation.finish(); // FOR IOS ONLY
-
       });
 
     // start recording location
