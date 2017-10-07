@@ -5,6 +5,8 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { NgCalendarModule } from 'ionic2-calendar';
+import { LocationTracker } from '../providers/geolocation/location-tracker';
+import { BackgroundGeolocation } from '@ionic-native/background-geolocation';
 import { Geolocation } from '@ionic-native/geolocation';
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
@@ -34,6 +36,7 @@ import { ObservationViewPage } from '../pages/observation-view/observation-view'
     StatusBar,
     SplashScreen,
     Geolocation,
+    //LocationTracker,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     LogicProvider
   ]
