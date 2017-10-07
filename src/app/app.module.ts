@@ -12,8 +12,9 @@ import { DateFormaterPipe } from '../pipes/date-formater/date-formater';
 import { ObservationViewPage } from '../pages/observation-view/observation-view';
 import { LocationTracker } from '../providers/location-tracker/location-tracker';
 import { BackgroundGeolocation } from '@ionic-native/background-geolocation';
-import { Geolocation } from '@ionic-native/geolocation';
+import { Geolocation } from '@ionic-native/geolocation'
 //import { LocationPage } from '../pages/location/location';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { Geolocation } from '@ionic-native/geolocation';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    LoginPage
+    LoginPage,
+    ObservationViewPage
   ],
   providers: [
     StatusBar,

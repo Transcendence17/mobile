@@ -7,12 +7,54 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>observationView</ion-title>
+    <ion-title text-center>{{ observation.t_name }}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+    <table class="table">
+      <tbody>
+        <tr>
+          <th>Task ID</th><td>: #{{ observation.task_id }}</td>
+        </tr>
+        <tr>
+          <th>Start Date</th><td>: {{ observation.s_date }}</td>
+        </tr>
+        <tr>
+          <th>End Date</th><td>: {{ observation.e_date }}</td>
+        </tr>
+        <tr>
+          <td colspan=2>
+            <textarea readonly rows=5>{{ observation.description }}</textarea>
+          </td>
+        </tr>
+        <tr>
+          <th>Obsevation Status</th><td>: {{ observation.status }}</td>
+        </tr>
+        <tr>
+          <th>Request</th><td>: {{ observation.r_type }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <ion-item>
+      <ion-row>
+        <ion-col class="comp">
+          <h1>{{ complete }}% complete...</h1>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+      <ion-item>
+        <ion-range min="0" max="100" step="1" (snaps)="complete" [(ngModel)]="complete">
+          <ion-icon range-left small name="flag"></ion-icon>
+          <ion-icon range-right name="checkmark"></ion-icon>
+        </ion-range>
+      </ion-item>
+    <ion-item >
+      <button ion-button large block icon-left (click) = "updateObsevation(observation.task_id, complete)">
+        <ion-icon name="edit"></ion-icon>
+        Save
+      </button>
+    </ion-item>
 </ion-content>

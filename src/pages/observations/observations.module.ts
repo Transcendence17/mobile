@@ -3,11 +3,10 @@ import { IonicPageModule } from 'ionic-angular';
 import { ObservationsPage } from './observations';
 import { DateFormaterPipe } from '../../pipes/date-formater/date-formater';
 
-
 @NgModule({
   declarations: [
     ObservationsPage,
-    DateFormaterPipe
+    DateFormaterPipe,
   ],
   imports: [
     IonicPageModule.forChild(ObservationsPage),
