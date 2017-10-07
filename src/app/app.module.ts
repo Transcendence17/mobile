@@ -27,7 +27,8 @@ import { ObservationViewPage } from '../pages/observation-view/observation-view'
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    LoginPage
+    LoginPage,
+    ObservationViewPage
   ],
   providers: [
     StatusBar,

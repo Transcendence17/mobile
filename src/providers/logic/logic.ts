@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class LogicProvider 
 {
-  host: string = "http://localhost:81/ipheya/core/MobileRequests/getRequest.php?";  
+  host: string = "http://localhost:81/ipheya/core/MobileRequests/";  
   constructor(public http: Http) 
   {
     console.log('Hello LogicProvider Provider');
@@ -19,18 +19,26 @@ export class LogicProvider
 
   getAllEmployees()
   {
-     return this.http.get(this.host+"allemployees=1").map(data=>data.json());
+     return this.http.get(this.host+"getRequest.php?allemployees=1").map(data=>data.json());
   }
   
   getAllTasks()
   {
-    return this.http.get(this.host+"alltasks=1").map(data => data.json());
+    return this.http.get(this.host+"getRequest.php?alltasks=1").map(data => data.json());
   }
 
   getAllObsevations()
   {
-      return this.http.get(this.host+"allobservations=1").map((data)=> data= data.json());
+      return this.http.get(this.host+"getRequest.php?allobservations=1").map((data)=> data= data.json());
   }
+
+  updateComplete(idpar,completepar)
+  {
+    let data = JSON.stringify({id : idpar, complete: completepar});
+    return this.http.post(this.host+"updateObsevation.php", data)
+      .map( res=> res.json());
+  }
+
 
   authUser()
   {
