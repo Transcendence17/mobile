@@ -32,6 +32,7 @@
         "cordova-plugin-calendar": "^4.6.0",
         "cordova-plugin-geolocation": "^2.4.3",
         "cordova-plugin-mauron85-background-geolocation": "^2.2.5",
+        "cordova-plugin-x-toast": "^2.6.0",
         "intl": "^1.2.5",
         "ionic-angular": "3.6.1",
         "ionic2-calendar": "^0.3.10",
@@ -51,7 +52,8 @@
             "cordova-plugin-calendar": {},
             "cordova-plugin-geolocation": {},
             "cordova-plugin-mauron85-background-geolocation": {},
-            "cordova-background-geolocation-lt": {}
+            "cordova-background-geolocation-lt": {},
+            "cordova-plugin-x-toast": {}
         }
     }
 }
