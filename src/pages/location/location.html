@@ -1,10 +1,25 @@
 <ion-header>
+
+    <ion-navbar>
+
+      <ion-buttons start>
+        <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+      </ion-buttons>
+
+      <ion-title text-center><ion-icon name="md-globe"></ion-icon> Geolocation</ion-title>
+
+    </ion-navbar>
+
+</ion-header>
+<!--<ion-header>
   <ion-navbar color="secondary">
     <ion-title>
       Location Tracker
     </ion-title>
   </ion-navbar>
-</ion-header>
+</ion-header>-->
 
 <ion-content>
   <h3>Current Latitude: {{locationTracker.lat}}</h3>

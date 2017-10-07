@@ -25,8 +25,8 @@ export class MenuPage {
     {title: 'Chats', pageName: 'ChattabsPage', tabComponent: 'ChatsPage', index: 0, icon: 'chatbubbles'  },// Chats Page
     {title: 'All Tasks', pageName: 'TasksPage', icon: 'list'  },// Task Page
     {title: 'Observations', pageName: 'ObservationsPage', icon: 'eye'  },// Task Page
-    {title: 'My Task', pageName: 'TasktabsPage', tabComponent: 'TasksPage', index: 0, icon: 'build'  },// Task Page
-    {title: 'Geolocation', pageName: 'LocationPage', icon: 'map'  },
+    {title: 'My Task', pageName: 'TasktabsPage', tabComponent: 'TasksPage', index: 0, icon: 'build'  },// Location
+    {title: 'Geolocation', pageName: 'LocationPage', icon: 'md-globe'  },
     {title: 'Profile', pageName: 'ProfilePage',icon: 'person'  },// Profile
     {title: 'Settings', pageName: 'SettingsPage', icon: 'cog'  },// Settings
   ]
