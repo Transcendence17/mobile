@@ -13,14 +13,12 @@ import { ObservationViewPage } from '../pages/observation-view/observation-view'
 import { LocationTracker } from '../providers/location-tracker/location-tracker';
 import { BackgroundGeolocation } from '@ionic-native/background-geolocation';
 import { Geolocation } from '@ionic-native/geolocation';
-import { LocationPage } from '../pages/location/location';
 
 @NgModule({
   declarations: [
     MyApp,
     LoginPage,
     ObservationViewPage,
-    LocationPage
    ],
   imports: [
     BrowserModule,
