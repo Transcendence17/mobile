@@ -27,10 +27,11 @@ export class LoginPage {
   login()
   {
     console.log(this.user);
-    this.navCtrl.setRoot('MenuPage');
+    // this.navCtrl.setRoot('MenuPage');
   }
   login_clicked(userpar)
   {
+    console.log(userpar)
     this.showLoader();
     this.logic.login(userpar).then(
       (res)=>{
