@@ -11,8 +11,9 @@
   </ion-navbar>
 
 </ion-header>
+
 <ion-content padding>
-    <form (ngSubmit)="logForm()">
+    <form (ngSubmit)="login()">
         <ion-item>
             <ion-input type="text" [(ngModel)]="user.username" name="username"></ion-input>
         </ion-item>

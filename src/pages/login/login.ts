@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
 
 /**
  * Generated class for the LoginPage page.
@@ -15,7 +15,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  user:any = {};
+  constructor(public navCtrl: NavController, public navParams: NavParams,public toastCtrl: ToastController,public loadingCtrl:LoadingController) {
   }
 
   ionViewDidLoad() {
@@ -24,6 +25,7 @@ export class LoginPage {
 
   login()
   {
+    console.log(this.user);
     this.navCtrl.setRoot('MenuPage');
   }
 
