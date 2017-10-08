@@ -11,8 +11,14 @@
   </ion-navbar>
 
 </ion-header>
-
-
 <ion-content padding>
-  <button ion-button full (click)="login()"><ion-icon name="login"></ion-icon> Login</button>
+    <form (ngSubmit)="logForm()">
+        <ion-item>
+            <ion-input type="text" [(ngModel)]="user.username" name="username"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-textarea [(ngModel)]="user.password" name="password"></ion-textarea>
+        </ion-item>
+        <button ion-button type="submit" color="Primary" block>Login</button>
+    </form>
 </ion-content>
