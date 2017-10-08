@@ -1,0 +1,35 @@
+<ion-header>
+
+    <ion-navbar>
+
+      <ion-buttons start>
+        <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+      </ion-buttons>
+
+      <ion-title text-center><ion-icon name="md-globe"></ion-icon> Geolocation</ion-title>
+
+    </ion-navbar>
+
+</ion-header>
+<!--<ion-header>
+  <ion-navbar color="secondary">
+    <ion-title>
+      Location Tracker
+    </ion-title>
+  </ion-navbar>
+</ion-header>-->
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Destination</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+  </ion-list>
+  <h3>Current Latitude: {{locationTracker.lat}}</h3>
+  <h3>Current Longitude: {{locationTracker.lng}}</h3>
+  <button ion-button primary (click)="start()">Start Tracking</button>
+  <button ion-button warning (click)="stop()">Stop Tracking</button>
+</ion-content>
