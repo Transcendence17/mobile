@@ -38,7 +38,8 @@ export class LoginPage {
         if(res!='')
         {
           this.user = res;
-          localStorage.setItem('id', this.user.User_Id)
+          console.log(res);
+          // localStorage.setItem('id', this.user.User_Id)
           this.navCtrl.setRoot("MenuPage");
         }
         else
