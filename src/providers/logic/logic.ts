@@ -44,10 +44,11 @@ export class LogicProvider
   {
     let user = JSON.stringify(userpar);
     return new Promise((resolve, reject)=>{
-      this.http.post(this.host+"mobile_request",user).map(res=>res.json()).subscribe((success)=>{
-        resolve(success)
+      this.http.post(this.host+"mobile_auth",user).map(res=>res.json()).subscribe((success)=>{
+        resolve(success);
+        console.log(success);
       },(error)=>{
-        reject(error)
+        reject(error);
       })
     });
   }

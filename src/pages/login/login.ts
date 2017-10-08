@@ -15,7 +15,7 @@ import { LogicProvider } from '../../providers/logic/logic'
 })
 export class LoginPage {
 
-  user:any = {};
+  user:any = {username:"", password:""};
   loading :any;
   constructor(public navCtrl: NavController, public logic: LogicProvider, public navParams: NavParams,public toastCtrl: ToastController,public loadingCtrl:LoadingController) {
   }
@@ -26,39 +26,41 @@ export class LoginPage {
 
   login()
   {
-    console.log(this.user);
-    // this.navCtrl.setRoot('MenuPage');
-  }
-  login_clicked(userpar)
-  {
-    console.log(userpar)
-    this.showLoader();
-    this.logic.login(userpar).then(
-      (res)=>{
-        this.loading.dismiss();
-        if(res!='')
-        {
-          this.user = res;
-          console.log(res);
-          // localStorage.setItem('id', this.user.User_Id)
-          this.navCtrl.setRoot("MenuPage");
-        }
-        else
-        {
-           this.showToast("Invalid username or password!");
-        }
-      },
-      (err)=>{
-        if(err.status==0)
-        {
-          this.showToast("No connetion, please check that you are connected");
+    if(this.user.username ==="" && this.user.password === "")
+    {
+      this.showToast("Please enter username or password!");      
+    }
+    else
+    {
+      console.log(this.user)
+      this.showLoader();
+      this.logic.login(this.user).then(
+        (res)=>{
           this.loading.dismiss();
-        }
-        else
-        {
-          this.showToast("Error! "+err);
-        }
-      });
+          if(res!='')
+          {
+            console.log(res);
+            // localStorage.setItem('id', this.user.User_Id)
+            this.navCtrl.setRoot("MenuPage");
+          }
+          else
+          {
+             this.showToast("Invalid username or password!");
+          }
+        },
+        (err)=>{
+          if(err.status==0)
+          {
+            this.showToast("No connetion, please check that you are connected");
+            this.loading.dismiss();
+          }
+          else
+          {
+            this.showToast("Error! "+err);
+          }
+        });
+    }
+    // this.navCtrl.setRoot('MenuPage');
   }
 
   showToast(msg)
