@@ -17,7 +17,20 @@ export class LoginPage {
 
   user:any = {username:"", password:""};
   loading :any;
-  constructor(public navCtrl: NavController, public logic: LogicProvider, public navParams: NavParams,public toastCtrl: ToastController,public loadingCtrl:LoadingController) {
+  constructor(public navCtrl: NavController, public logic: LogicProvider, public navParams: NavParams,public toastCtrl: ToastController,public loadingCtrl:LoadingController) 
+  {
+    this.authUser().then((result)=>
+      {
+        if(result===true)
+        {
+          navCtrl.setRoot('MenuPage');
+        }
+        else
+        {
+          this.showToast("Login in here!");                
+        }
+      }
+    );
   }
 
   ionViewDidLoad() {
@@ -40,7 +53,8 @@ export class LoginPage {
           if(res!='')
           {
             console.log(res);
-            // localStorage.setItem('id', this.user.User_Id)
+            let luser = JSON.stringify(this.user);
+            localStorage.setItem('userLocal', luser)
             this.navCtrl.setRoot("MenuPage");
           }
           else
@@ -84,6 +98,27 @@ export class LoginPage {
     this.loading =this.loadingCtrl.create({content:'Please wait...'});
     this.loading.present();
   }
+
+  authUser()
+  {
+    return new Promise ((resolve)=>{
+      if(localStorage.getItem('userLocal')!=null)
+      {
+        resolve(true);
+      }
+      else{
+        resolve(false);
+      }
+    });
+  }
+
+  logout()
+  {
+    return new Promise((resolve)=>{
+      localStorage.setItem('userLocal',null);
+      resolve(true);
+    });
+  } 
 
 
 }

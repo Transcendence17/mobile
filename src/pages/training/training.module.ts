@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { HomePage } from './home';
+import { TrainingPage } from './training';
 import { DateFormaterPipe } from '../../pipes/date-formater/date-formater';
 
 @NgModule({
   declarations: [
-    HomePage,
+    TrainingPage,
     DateFormaterPipe
   ],
   imports: [
-    IonicPageModule.forChild(HomePage),
+    IonicPageModule.forChild(TrainingPage),
   ],
 })
-export class HomePageModule {}
+export class TrainingPageModule {}

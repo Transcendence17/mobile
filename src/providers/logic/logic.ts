@@ -32,6 +32,11 @@ export class LogicProvider
       return this.http.get(this.host+"getRequest.php?allobservations=1").map((data)=> data= data.json());
   }
 
+  getAllTrainings()
+  {
+      return this.http.get(this.host+"getRequest.php?allPosts=1").map((data)=> data= data.json());
+  }
+
   updateComplete(idpar,completepar)
   {
     let data = JSON.stringify({id : idpar, complete: completepar});
@@ -63,6 +68,18 @@ export class LogicProvider
       {
         resolve(false);
       }
+    });
+  }
+  apply(id, username)
+  {
+    let training ={trainging_id : id, email: username };
+
+    return new Promise((resolve, reject)=>{
+      this.http.post(this.host+"apply.php",JSON.stringify(training)).map(res=>res.json()).subscribe((success)=>{
+        resolve(success);
+      },(error)=>{
+        reject(error)
+      })
     });
   }
 
