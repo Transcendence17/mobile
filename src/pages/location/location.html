@@ -22,14 +22,28 @@
 </ion-header>-->
 
 <ion-content padding>
-  <ion-list>
+  <!--<ion-list>
     <ion-item>
       <ion-label floating>Destination</ion-label>
       <ion-input type="text"></ion-input>
     </ion-item>
-  </ion-list>
-  <h3>Current Latitude: {{locationTracker.lat}}</h3>
-  <h3>Current Longitude: {{locationTracker.lng}}</h3>
-  <button ion-button primary (click)="start()">Start Tracking</button>
-  <button ion-button warning (click)="stop()">Stop Tracking</button>
+  </ion-list>-->
+     <ion-list>
+        <ion-item>
+        <ion-label floating>Current location</ion-label>
+        <ion-input type="text" id="autocomplete" onFocus="geolocate()" [(ngModel)]="Start"></ion-input>
+        </ion-item>
+
+        <ion-item>
+        <ion-label floating>Destination</ion-label>
+        <ion-input type="text" [(ngModel)]="End"></ion-input>
+        </ion-item>
+        <button ion-button full (click)="calculateAndDisplayRoute()">Get Directions</button>
+      </ion-list>
+      <div id="map"></div>
+
+      <h3>Current Latitude: {{locationTracker.lat}}</h3>
+      <h3>Current Longitude: {{locationTracker.lng}}</h3>
+      <button ion-button primary (click)="start()">Start Tracking</button>
+      <button ion-button warning (click)="stop()">Stop Tracking</button>
 </ion-content>

@@ -3,10 +3,10 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class LogicProvider 
+export class LogicProvider
 {
-  host: string = "http://localhost:81/ipheya/core/MobileRequests/";  
-  constructor(public http: Http) 
+  host: string = "http://invest4living.com/ipheya/core/MobileRequests/";  
+  constructor(public http: Http)
   {
     console.log('Hello LogicProvider Provider');
   }
@@ -21,7 +21,7 @@ export class LogicProvider
   {
      return this.http.get(this.host+"getRequest.php?allemployees=1").map(data=>data.json());
   }
-  
+
   getAllTasks()
   {
     return this.http.get(this.host+"getRequest.php?alltasks=1").map(data => data.json());
@@ -72,6 +72,5 @@ export class LogicProvider
       localStorage.setItem('id',null);
       resolve(false);
     });
-  } 
+  }
 }
-
