@@ -15,9 +15,22 @@ import { LogicProvider } from '../../providers/logic/logic'
 })
 export class LoginPage {
 
-  user:any = {};
+  user:any = {username:"", password:""};
   loading :any;
-  constructor(public navCtrl: NavController, public logic: LogicProvider, public navParams: NavParams,public toastCtrl: ToastController,public loadingCtrl:LoadingController) {
+  constructor(public navCtrl: NavController, public logic: LogicProvider, public navParams: NavParams,public toastCtrl: ToastController,public loadingCtrl:LoadingController) 
+  {
+    this.authUser().then((result)=>
+      {
+        if(result===true)
+        {
+          navCtrl.setRoot('MenuPage');
+        }
+        else
+        {
+          this.showToast("Login in here!");                
+        }
+      }
+    );
   }
 
   ionViewDidLoad() {
@@ -26,37 +39,42 @@ export class LoginPage {
 
   login()
   {
-    console.log(this.user);
-    this.navCtrl.setRoot('MenuPage');
-  }
-  login_clicked(userpar)
-  {
-    this.showLoader();
-    this.logic.login(userpar).then(
-      (res)=>{
-        this.loading.dismiss();
-        if(res!='')
-        {
-          this.user = res;
-          localStorage.setItem('id', this.user.User_Id)
-          this.navCtrl.setRoot("MenuPage");
-        }
-        else
-        {
-           this.showToast("Invalid username or password!");
-        }
-      },
-      (err)=>{
-        if(err.status==0)
-        {
-          this.showToast("No connetion, please check that you are connected");
+    if(this.user.username ==="" && this.user.password === "")
+    {
+      this.showToast("Please enter username or password!");      
+    }
+    else
+    {
+      console.log(this.user)
+      this.showLoader();
+      this.logic.login(this.user).then(
+        (res)=>{
           this.loading.dismiss();
-        }
-        else
-        {
-          this.showToast("Error! "+err);
-        }
-      });
+          if(res!='')
+          {
+            console.log(res);
+            let luser = JSON.stringify(this.user);
+            localStorage.setItem('userLocal', luser)
+            this.navCtrl.setRoot("MenuPage");
+          }
+          else
+          {
+             this.showToast("Invalid username or password!");
+          }
+        },
+        (err)=>{
+          if(err.status==0)
+          {
+            this.showToast("No connetion, please check that you are connected");
+            this.loading.dismiss();
+          }
+          else
+          {
+            this.showToast("Error! "+err);
+          }
+        });
+    }
+    // this.navCtrl.setRoot('MenuPage');
   }
 
   showToast(msg)
@@ -80,6 +98,27 @@ export class LoginPage {
     this.loading =this.loadingCtrl.create({content:'Please wait...'});
     this.loading.present();
   }
+
+  authUser()
+  {
+    return new Promise ((resolve)=>{
+      if(localStorage.getItem('userLocal')!=null)
+      {
+        resolve(true);
+      }
+      else{
+        resolve(false);
+      }
+    });
+  }
+
+  logout()
+  {
+    return new Promise((resolve)=>{
+      localStorage.setItem('userLocal',null);
+      resolve(true);
+    });
+  } 
 
 
 }

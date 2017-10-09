@@ -27,6 +27,7 @@
     "@ionic-native/splash-screen": "3.12.1",
     "@ionic-native/status-bar": "3.12.1",
     "@ionic/storage": "2.0.1",
+    "a": "^2.1.1",
     "cordova-android": "^6.2.3",
     "cordova-background-geolocation-lt": "git+https://github.com/transistorsoft/cordova-background-geolocation-lt.git",
     "cordova-plugin-calendar": "^4.6.0",

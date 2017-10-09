@@ -8,6 +8,6 @@ export class DateFormaterPipe implements PipeTransform {
    * Takes a value and makes it lowercase.
    */
   transform(value: string, ...args) {
-    return moment(value).format('D-M-Y');
+    return moment(value).format('D-MMM-Y');
   }
 }
