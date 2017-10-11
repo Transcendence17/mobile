@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { LocationTracker } from '../../providers/location-tracker/location-tracker';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 
 /**
  * Generated class for the LocationPage page.

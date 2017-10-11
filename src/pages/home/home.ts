@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LogicProvider } from '../../providers/logic/logic';
-import { TrainingPage } from '../training/training';
 
 @IonicPage()
 @Component({
@@ -29,7 +28,7 @@ export class HomePage {
 
   openTraining(trainingpar)
   {
-    this.navCtrl.push(TrainingPage,{training: trainingpar})
+    this.navCtrl.push('TrainingPage',{training: trainingpar})
   }
 
 }

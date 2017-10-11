@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LogicProvider } from '../../providers/logic/logic';
-import { ObservationViewPage } from '../observation-view/observation-view'
 
 @IonicPage()
 @Component({
@@ -38,6 +37,6 @@ export class ObservationsPage
 
   openObservation(observation)
   {
-    this.navCtrl.push(ObservationViewPage, {observation: observation});
+    this.navCtrl.push('ObservationViewPage', {observation: observation});
   }
 }

@@ -14,11 +14,12 @@ export interface PageInterface{
   selector: 'page-menu',
   templateUrl: 'menu.html',
 })
+
 export class MenuPage {
 
-  rootPage ='HomePage';
+  rootPage:any = 'HomePage';
 
-  @ViewChild(Nav) nav: Nav;
+  @ViewChild(Nav) nav: NavController;
 
   pages: PageInterface[] =[
     {title: 'Home', pageName: 'HomePage', icon: 'home'  },// Home Page

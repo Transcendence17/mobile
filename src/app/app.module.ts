@@ -1,43 +1,29 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { StatusBar } from '@ionic-native/status-bar';
-import { NgCalendarModule } from 'ionic2-calendar';
-import { MyApp } from './app.component';
-// import { LoginPage } from '../pages/login/login';
-import { LogicProvider } from '../providers/logic/logic';
-import { DateFormaterPipe } from '../pipes/date-formater/date-formater';
-import { ObservationViewPage } from '../pages/observation-view/observation-view';
-import { LocationTracker } from '../providers/location-tracker/location-tracker';
-import { BackgroundGeolocation } from '@ionic-native/background-geolocation';
+import { MyApp } from "./app.component";
+import { BrowserModule } from "@angular/platform-browser";
+import { NgCalendarModule } from "ionic2-calendar";
+import { IonicModule, IonicApp, IonicErrorHandler } from "ionic-angular";
+import { HttpModule } from "@angular/http";
+import { StatusBar } from "@ionic-native/status-bar";
+import { ErrorHandler, NgModule } from "@angular/core";
+import { LogicProvider } from "../providers/logic/logic";
+import { BackgroundGeolocation } from "@ionic-native/background-geolocation";
+import { LocationTracker } from "../providers/location-tracker/location-tracker";
+import { SplashScreen } from "@ionic-native/splash-screen";
 import { Geolocation } from '@ionic-native/geolocation';
-import { TrainingPage } from '../pages/training/training';
-
-//import { LocationPage } from '../pages/location/location';
-
-
 @NgModule({
   declarations: [
-    MyApp,
-    // LoginPage,
-    ObservationViewPage,
-    TrainingPage,
+    MyApp
    ],
   imports: [
     BrowserModule,
     NgCalendarModule,
     IonicModule.forRoot(MyApp),
-    HttpModule
+    HttpModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    // LoginPage,
-    ObservationViewPage,
-    TrainingPage
-  ],
+    MyApp
+    ], 
   providers: [
     StatusBar,
     SplashScreen,

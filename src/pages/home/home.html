@@ -2,8 +2,8 @@
 <ion-header>
   
   <ion-navbar>
-  
-    <ion-buttons start>
+
+    <ion-buttons end>
       <button ion-button menuToggle>
         <ion-icon name="menu"></ion-icon>
       </button>
@@ -24,7 +24,7 @@
               <img src="../../assets/images/icon.png">
             </ion-avatar>
             <h2>IPHEYA</h2>
-            <p>{{ training.startdate | dateFormater }} - {{ training.startdate | dateFormater }}</p>
+            <p>{{ training.startdate | date:'d MMM yyyy' }} - {{ training.startdate | date: "d MMM yyyy" }}</p>
           </ion-item>
 
           <ion-card-content>

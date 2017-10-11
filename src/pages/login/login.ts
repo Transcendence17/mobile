@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
 import { LogicProvider } from '../../providers/logic/logic'
+import { SplashScreen } from '@ionic-native/splash-screen';
 /**
  * Generated class for the LoginPage page.
  *
@@ -14,23 +15,25 @@ import { LogicProvider } from '../../providers/logic/logic'
   templateUrl: 'login.html',
 })
 export class LoginPage {
-
+  
   user:any = {username:"", password:""};
   loading :any;
-  constructor(public navCtrl: NavController, public logic: LogicProvider, public navParams: NavParams,public toastCtrl: ToastController,public loadingCtrl:LoadingController) 
+  constructor(public navCtrl: NavController, public logic: LogicProvider, public navParams: NavParams,public toastCtrl: ToastController,public loadingCtrl:LoadingController,splashScreen: SplashScreen) 
   {
+    splashScreen.show()
     this.authUser().then((result)=>
+    {
+      if(result===true)
       {
-        if(result===true)
-        {
-          navCtrl.setRoot('MenuPage');
-        }
-        else
-        {
-          this.showToast("Login in here!");                
-        }
+        this.navCtrl.setRoot('MenuPage');
       }
-    );
+      else
+      {
+        this.navCtrl.setRoot('LoginPage');
+      }
+      splashScreen.hide();
+    }
+  );
   }
 
   ionViewDidLoad() {
@@ -55,7 +58,7 @@ export class LoginPage {
             console.log(res);
             let luser = JSON.stringify(this.user);
             localStorage.setItem('userLocal', luser)
-            this.navCtrl.setRoot("MenuPage");
+            this.navCtrl.setRoot('HomePage');
           }
           else
           {
@@ -74,7 +77,7 @@ export class LoginPage {
           }
         });
     }
-    // this.navCtrl.setRoot('MenuPage');
+    // this.navCtrl.setRoot('HomePage');
   }
 
   showToast(msg)
@@ -99,6 +102,16 @@ export class LoginPage {
     this.loading.present();
   }
 
+  
+
+  logout()
+  {
+    return new Promise((resolve)=>{
+      localStorage.setItem('userLocal',null);
+      resolve(true);
+    });
+  } 
+
   authUser()
   {
     return new Promise ((resolve)=>{
@@ -111,14 +124,5 @@ export class LoginPage {
       }
     });
   }
-
-  logout()
-  {
-    return new Promise((resolve)=>{
-      localStorage.setItem('userLocal',null);
-      resolve(true);
-    });
-  } 
-
 
 }
