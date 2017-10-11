@@ -16,6 +16,7 @@ declare var google;
   templateUrl: 'location.html',
 })
 export class LocationPage {
+  /*Direction service*/
   Start: any;
   End : any;
   constructor(public navCtrl: NavController, public locationTracker: LocationTracker) {
