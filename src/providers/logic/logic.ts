@@ -7,7 +7,7 @@ export class LogicProvider
 {
   living: string ="www.invest4living.com";
   local: string ="localhost:81";
-  host: string = "http://"+this.local+"/ipheya/core/MobileRequests/";  
+  host: string = "http://"+this.local+"/ipheya/core/MobileRequests/";
 
   constructor(public http: Http) 
   {
