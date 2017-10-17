@@ -22,10 +22,4 @@ export class SettingsPage {
     console.log('ionViewDidLoad SettingsPage');
   }
 
-  logoff()
- {
-   console.log("loggoff clicked")
-   localStorage.clear();
-   this.navCtrl.setRoot('LoginPage');
- }
 }
