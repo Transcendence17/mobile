@@ -6,7 +6,7 @@ import { HttpModule } from "@angular/http";
 import { StatusBar } from "@ionic-native/status-bar";
 import { ErrorHandler, NgModule } from "@angular/core";
 import { LogicProvider } from "../providers/logic/logic";
-import { BackgroundGeolocation } from "@ionic-native/background-geolocation";
+//import { BackgroundGeolocation } from "@ionic-native/background-geolocation";
 import { LocationTracker } from "../providers/location-tracker/location-tracker";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { Geolocation } from '@ionic-native/geolocation';
@@ -23,12 +23,12 @@ import { Geolocation } from '@ionic-native/geolocation';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp
-    ], 
+    ],
   providers: [
     StatusBar,
     SplashScreen,
-    LocationTracker,
-    BackgroundGeolocation,
+    // LocationTracker,
+    //BackgroundGeolocation,
     Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     LogicProvider,

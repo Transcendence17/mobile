@@ -4,7 +4,7 @@ import { Injectable, NgZone } from '@angular/core';
 import { Geolocation, Geoposition } from '@ionic-native/geolocation';
 //import 'rxjs/add/operator/map';//removed
 import 'rxjs/add/operator/filter';
-import { BackgroundGeolocation } from '@ionic-native/background-geolocation';
+//import { BackgroundGeolocation } from '@ionic-native/background-geolocation';
 
 /*
   Generated class for the LocationTrackerProvider provider.

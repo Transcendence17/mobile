@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LocationTracker } from '../../providers/location-tracker/location-tracker';
+//import { LocationTracker } from '../../providers/location-tracker/location-tracker';
 
 import { IonicPage, NavController } from 'ionic-angular';
 //import { IonicPage, NavController, NavParams } from 'ionic-angular';
@@ -21,7 +21,7 @@ export class LocationPage {
   /*Direction service*/
   Start: any;
   End : any;
-  constructor(public navCtrl: NavController, public locationTracker: LocationTracker) {
+  constructor(public navCtrl: NavController) {
 
   }
   calculateAndDisplayRoute() {
@@ -45,11 +45,11 @@ directionsDisplay.setMap(map);
   });
 }
 
-  start(){
+  /*start(){
     this.locationTracker.startTracking();
   }
 
   stop(){
     this.locationTracker.stopTracking();
-  }
+  }*/
 }
