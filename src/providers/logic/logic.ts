@@ -5,11 +5,11 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class LogicProvider
 {
-  live: string ="www.invest4living.com";
+  living: string ="www.invest4living.com";
   local: string ="localhost:81";
   host: string = "http://"+this.local+"/ipheya/core/MobileRequests/";
 
-  constructor(public http: Http)
+  constructor(public http: Http) 
   {
     console.log('Hello LogicProvider Provider');
   }
